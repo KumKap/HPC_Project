@@ -1,0 +1,118 @@
+<hmtl>
+    <link rel="stylesheet" type="text/css" href="index.css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <head>
+        <script>
+        function validateForm() {
+          var truth = 0;
+          var x = document.forms["myForm"]["myfile"].value;
+          var y = document.forms["myForm"]["head"].value;
+          var z = document.forms["myForm"]["proc"].value;
+
+          if (x == "") {
+            alert("Please Select Document for dataset");
+            return false;
+          }
+          else {
+            var str = x.split(".",2);
+            if( (str[1] == "csv") || (str[1] == "xlsx" ) ){
+                truth = truth + 1;
+                }
+            else{
+                alert("File type must be csv or excel only.");
+                return false;}
+          }
+          if (y == "Blank" ){
+                alert("Please Select if given Dataset file has header/title in first row.");
+                return false;
+          }
+          else{
+              truth = truth + 1;
+          }
+          if (z == "Blank" ){
+                alert("Please Select number of processes for MPI.");
+                return false;
+          }
+          else{
+              truth = truth + 1;
+          }
+          if(truth == 3){
+              return true;
+          }
+          
+        }
+        </script>
+        </head>
+    <body style="background-image: url('greybg.jpg');">
+    
+        <div  style="color:white;text-align:center;
+        background-color: #FF0266;
+        font-weight: bold;
+        height: 75px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow:20px 20px 10px grey;"> 
+            <div style="padding-top: 15px;
+            font-family: 'Crimson Text', serif;
+            font-size: 30px;
+            text-shadow: 2px 2px grey;">
+            HPC Project: K-Means Clustering using MPI
+            </div>
+        </div>
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 18px; margin-top: 18px;">
+                <span style="margin:auto;
+                display:block;
+                font-size: xx-large;
+                color: rgb(43, 27, 37);
+                font-family: 'Poppins', sans-serif;">
+                2D K-MEANS CLUSTERING
+                </span>
+            </div>
+            <form name="myForm" action="action.php"  onsubmit="return validateForm()" method="POST" enctype="multipart/form-data">
+              <label for="myfile">SELECT CSV/EXCEL FILE FOR DATASET:</label>
+                <input type="file" id="myfile" name="myfile" >
+                <br><br><br>
+              <label for="cluster">NUMBER OF CLUSTERS:</label>
+                <select id="cluster" name="cluster">
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                    <option value=10>10</option>
+                </select><br><br>
+             <label for="head">DATASET INCLUDES HEAD TITLE:</label>
+                <select id="head" name="head">
+                    <option value="Blank">-</option>
+                    <option value="NO">NO</option>
+                    <option value="YES">YES</option>
+                </select> <br><br>
+                <label for="proc">NUMBER OF PROCESSES:</label>
+                <select id="proc" name="proc">
+                    <option value="Blank">-</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                    <option value=10>10</option>
+                    
+                </select>
+             
+             <input type="submit" value="SUBMIT" ali>
+            </form>
+          </div>
+        
+    </body>
+</html>
