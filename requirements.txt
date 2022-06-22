@@ -1,6 +1,6 @@
 matplotlib==3.2.1
 mpi4py==3.0.3
-numpy==1.18.2
+numpy==1.22.0
 pandas==1.0.3
 xlrd==1.2.0
 XlsxWriter==1.2.8
